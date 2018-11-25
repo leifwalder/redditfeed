@@ -1,0 +1,53 @@
+<div class="settings">
+<div class="topic">
+  <label>subreddit:</label>
+    <input [ngModel]="topic" (ngModelChange)="handleTopicChange($event)" style="margin-right:20px;">
+  </div>
+
+
+  <div class="limit">
+    <label>limit:</label>
+    <input 
+      type="radio" 
+      name="limit" 
+      value="5"
+      [(ngModel)]="limit"
+      (ngModelChange)="handleLimitChange($event)"> 5
+    <br>
+
+    <input 
+      type="radio" 
+      name="limit" 
+      value="10"
+      [(ngModel)]="limit"
+      (ngModelChange)="handleLimitChange($event)"> 10
+    <br>
+    
+    <input 
+      type="radio" 
+      name="limit" 
+      value="25" 
+      [(ngModel)]="limit"
+      (ngModelChange)="handleLimitChange($event)"> 25
+    <br>
+  </div>
+
+</div>
+
+<style>
+  .settings {
+     display:flex;
+     justify-content: center;
+     margin-top:40px;
+   }
+   .limit {
+     display:flex;
+     justify-content: center;
+   }
+   .topic {
+     display: flex;
+      align-self: center;
+   }
+</style>
+
+

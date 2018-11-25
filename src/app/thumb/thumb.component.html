@@ -1,0 +1,58 @@
+
+<div class="thumb-wrapper">
+  <div class="head">
+    <img src="{{this.imageSrc()}}" width="140" height="140"/>
+    <h3 title="{{entry.title}}">{{entry.title.substring(0, 59)}}</h3>
+  </div>
+  <div class="tail"> 
+    <p> created: {{ this.toReadableDate(entry.created) }} </p>
+    <p> comments ( {{entry.num_comments}} ) </p>
+    <p> author: {{ entry.author }} </p>
+    <p> score: {{ entry.score }} </p>
+    <a title="{{entry.title}}" href="{{ this.feedService.baseUrl+entry.permalink }}">permalink</a>
+  </div>
+</div>
+
+<style>
+  .thumb-wrapper {
+    display:flex;
+    flex-direction:column;
+    padding: 20px;
+    background-color:lightgrey;
+    width:25vw;
+    height:30vh;
+    margin:10px;
+  }
+  .head {
+    display: flex;
+    flex-direction:row;
+    height:140px;
+  }
+  .tail {
+    display: flex;
+    flex-direction:column;
+    
+  }
+  .tail * {
+    margin:2px;
+    padding:0px;
+  }
+
+  .thumb-wrapper img {
+    width:140px;
+    height:140px;
+    min-width:140px;
+    min-height:140px;
+  }
+
+  .thumb-wrapper h3 {
+    font-size:16px;
+    background-color:white;
+    padding:15px;
+    margin:0px;
+    width: 30vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height:110px;
+  }
+</style>

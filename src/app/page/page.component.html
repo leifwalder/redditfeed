@@ -1,0 +1,49 @@
+<div *ngIf="entry" class="page">
+
+  <div class="head">
+    <h2>{{entry.title}}</h2>
+    <img *ngIf="entry.url" src="{{entry.url}}"/>
+  </div>
+
+  <div class="tail">
+
+  </div>
+
+  <p> created: {{ this.toReadableDate(entry.created) }} </p>
+
+  <p> author: {{ entry.author }} </p>
+
+  <p> permalink  {{ entry.permalink }} </p>
+
+  <p> title: {{ entry.title }} </p>
+
+  <p> score: {{ entry.score }} </p>
+
+  <p> selftext: {{ entry.selftext }}</p>
+
+  <div class="comment-section">
+    
+    <comments 
+      [comments]="this.feedService.comments"  
+      *ngIf="this.feedService.comments.length > 0">
+    </comments>
+
+  </div>
+
+</div>
+
+<style>
+  .page {
+    background-color:lightgrey;
+    padding: 40px;
+  }
+
+  .head {
+
+  }
+  .head img {
+    width:100%;
+  }
+</style>
+
+

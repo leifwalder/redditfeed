@@ -1,0 +1,41 @@
+<div *ngFor="let comment of comments" class="comments">
+  <ul>
+    <li>
+      <div class="flex-col">
+
+        <p class="author">
+          {{comment.data.author}}
+        </p>
+        <p>
+          {{comment.data.body}}
+        </p>
+
+      </div>
+    <comments
+      [comments]="comment.data.replies.data.children" 
+      *ngIf="comment.data.replies">
+    </comments>
+    </li> 
+  </ul>
+</div>
+
+<style>
+  .flex-row {
+    display:flex;
+    flex-direction:row;
+  }
+  .flex-col {
+    display:flex;
+    flex-direction:column;
+  }
+  .comments {
+    margin-left: -10px;
+    margin-top:15px;
+  }
+
+  .author {
+    opacity: 0.4;
+    line-height:0px;
+  }
+
+</style>

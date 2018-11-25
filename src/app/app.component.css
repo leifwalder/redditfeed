@@ -1,0 +1,50 @@
+* {
+  font-family: 'IBM Plex Mono', monospace;
+  
+}
+
+
+@media screen and (max-width: 600px) {
+  * {
+    font-size: 2vw; 
+  }
+
+  .thumb-wrapper img {
+    max-width:20vw !important;
+    max-height:20vw !important;
+    width:20vw !important;
+    height:20vw !important;
+    min-width:20vw !important;
+    min-height:20vw !important;
+  }
+
+  .thumb-wrapper h3 {
+    font-size:2vw !important; 
+    padding: 5px !important;
+    max-width: 23vw !important;
+    
+  }
+
+  .thumb-wrapper .head {
+    flex-direction:column !important;
+    overflow: hidden !important;
+  }
+
+  .settings {
+    flex-direction: column !important;
+  }
+  .settings .limit {
+    margin-top:10px;
+  }
+  .settings .topic {
+    margin-left:30px;
+  }
+}
+
+
+
+html {
+  margin-top:-20px;
+}
+
+
