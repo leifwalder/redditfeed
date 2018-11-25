@@ -27,13 +27,11 @@ export class PageComponent  {
     this.id = +params['id']; // (+) converts string 'id' to a number
       if (this.feedService.entries[this.id]) {
         this.entry = this.feedService.entries[this.id]
-        console.log("page, entry set")
         this.feedService.resetComments();
         this.feedService.getComments(
           this.feedService.getTopic(),
           this.entry.id);
       }
-      console.log("PAGE after param init", this);
     });
   }
 

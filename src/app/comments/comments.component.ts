@@ -9,14 +9,4 @@ export class CommentsComponent  {
 
   @Input() comments: any
 
-  constructor(){
-    console.log("comments invoked")
-  }
-
-  ngOnInit(){
-    console.log("comments ", this.comments);
-  }
-
-
-  toArray
 }

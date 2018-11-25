@@ -63,7 +63,6 @@ export class FeedService  {
     return this.limit;
   }
   public changeLimit(newLimit: string) {
-    console.log("feedService change limit")
     this.limit = Number(newLimit);
     this.clearPaging();
     this.getFeed(this.topic, this.limit, this.beforeId, this.afterId);
@@ -93,19 +92,11 @@ export class FeedService  {
     const beforeParam: string = beforeId ? `&before=t3_${beforeId}` : '';
     const afterParam: string = afterId ? `&after=t3_${afterId}` : '';
 
-    console.log('calling getFeed(), this', this);
-
     this.http.get(`https://www.reddit.com/r/${topic}.json?limit=${limit}${beforeParam}${afterParam}`)
       .subscribe((res: Response) => {
         const asJson = res.json();
-        console.log("res", res);
-        console.log("res.json()", res.json());
         this.currentFeed = res.json();
         this.entries = asJson.data.children.map(rawEntry => rawEntry.data);
-
-
-        console.log("this.currentFeed", this.currentFeed);
-        console.log("this.entries", this.entries);
       }, error => {
         console.log(error);
       });
@@ -119,11 +110,9 @@ export class FeedService  {
 
   public getComments(topic: string, id: string): void {
 
-    console.log("feedService, getComments();")
     this.http.get(`${this.baseUrl}/r/${topic}/comments/${id}.json?`)
       .subscribe((res: Response) => {
         const asJson = res.json();
-        console.log("Comments asJson", asJson);
 
         let comments: [];
         const hasComments = (asJson[1].data.children.length > 0)
@@ -131,9 +120,6 @@ export class FeedService  {
           comments = asJson[1].data.children;
         }
         this.comments = comments
-        console.log("comments", comments);
-        //const hasReplies = (true);
-
 
       }, error => {
         console.log(error);

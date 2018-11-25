@@ -16,7 +16,6 @@ export class PagingComponent  {
   ) {}
 
   navigateToPage(event, index : number) {
-    console.log("click event", event)
     const anchorWasClicked = (event.path[0] && event.path[0].href);
     if (!anchorWasClicked) {
       this.route.navigate(['page', index]);

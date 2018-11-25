@@ -12,9 +12,7 @@ export class ThumbComponent  {
 
   @Input() entry: FeedChild;
 
-  constructor(private feedService: FeedService) {
-    //console.log("Thumb component", this);
-  }
+  constructor(private feedService: FeedService) {}
 
   private imageSrc(): string {
     return (this.entry.thumbnail && this.entry.thumbnail !== "self") ? this.entry.thumbnail : this.fallbackImage;
